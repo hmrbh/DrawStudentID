@@ -1,0 +1,46 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="来抽学号！"
+config/version="2.1.0"
+run/main_scene="res://node_2d.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+run/low_processor_mode=true
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/image="res://a6p5z-oydti.png"
+boot_splash/use_filter=false
+config/icon="res://a6p5z-oydti.png"
+run/width=128
+run/height=720
+
+[display]
+
+window/size/viewport_width=350
+window/size/viewport_height=450
+window/size/always_on_top=true
+window/size/transparent=true
+window/subwindows/embed_subwindows=false
+window/stretch/scale=1.2
+window/stretch/scale_mode="integer"
+window/per_pixel_transparency/allowed=true
+
+[dotnet]
+
+project/assembly_name="来抽学号！"
+
+[gui]
+
+theme/custom="res://new_theme.tres"
+
+[rendering]
+
+renderer/rendering_method="mobile"

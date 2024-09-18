@@ -1,0 +1,94 @@
+[gd_scene load_steps=3 format=3 uid="uid://crh0wya5rua77"]
+
+[ext_resource type="Script" path="res://button.gd" id="1_g8bfo"]
+[ext_resource type="Script" path="res://node_2d.gd" id="1_pfeoy"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_pfeoy")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 73.0
+offset_top = 278.0
+offset_right = 283.0
+offset_bottom = 355.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "  抽学号  "
+script = ExtResource("1_g8bfo")
+
+[node name="Window" type="Window" parent="Button"]
+positional_shadow_atlas_size = 0
+positional_shadow_atlas_16_bits = false
+positional_shadow_atlas_quad_0 = 0
+positional_shadow_atlas_quad_1 = 0
+positional_shadow_atlas_quad_2 = 0
+positional_shadow_atlas_quad_3 = 0
+initial_position = 1
+size = Vector2i(1200, 1100)
+visible = false
+unresizable = true
+borderless = true
+
+[node name="ColorRect" type="ColorRect" parent="Button/Window"]
+custom_minimum_size = Vector2(10000, 10000)
+layout_direction = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4550.0
+offset_top = -4600.0
+offset_right = 4550.0
+offset_bottom = 4600.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.387176, 0.761268, 0.864117, 1)
+
+[node name="Label" type="Label" parent="Button/Window"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.5
+offset_top = -136.5
+offset_right = 129.5
+offset_bottom = 136.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 200
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Button"]
+light_mask = 2
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -14.0
+offset_top = -122.0
+offset_right = -14.0
+offset_bottom = -67.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.383501, 0.757753, 0.861401, 1)
+theme_override_constants/outline_size = 18
+theme_override_font_sizes/font_size = 40
+
+[node name="Button" type="Button" parent="Button"]
+layout_mode = 0
+offset_left = 219.0
+offset_top = 1.0
+offset_right = 259.0
+offset_bottom = 32.0
+text = "重置"
+script = ExtResource("1_g8bfo")
+
+[connection signal="button_down" from="Button" to="Button" method="_on_button_down"]
+[connection signal="button_down" from="Button/Button" to="Button" method="_on_button_button_down"]
