@@ -25,4 +25,3 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				pos_difference = DisplayServer.window_get_position() - DisplayServer.mouse_get_position()
 			else:
 				can_dragging = false
-		

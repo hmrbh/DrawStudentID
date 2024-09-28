@@ -16,9 +16,10 @@ run/main_scene="res://node_2d.tscn"
 config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
 run/low_processor_mode=true
 boot_splash/bg_color=Color(1, 1, 1, 1)
-boot_splash/image="res://a6p5z-oydti.png"
+boot_splash/image="res://icon.png"
 boot_splash/use_filter=false
-config/icon="res://a6p5z-oydti.png"
+config/icon="res://icon.png"
+boot_splash/minimum_display_time=1500
 run/width=128
 run/height=720
 
@@ -37,6 +38,14 @@ window/per_pixel_transparency/allowed=true
 [dotnet]
 
 project/assembly_name="来抽学号！"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
+
+[gui]
+
+theme/custom_font="res://MiSans-Demibold.ttf"
 
 [rendering]
 
