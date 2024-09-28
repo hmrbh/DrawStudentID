@@ -31,12 +31,12 @@ public partial class DrawIDButton : Button
 		timerResetText.WaitTime = 1;
 		timerResetText.Connect("timeout", Callable.From(CleanResetText));
 		timerResetText.OneShot = true;
+
 	}
 
 
 	public void _Process(float delta)
 	{
-		
 	}
 
 	private void ShuffleArray(List<int> array)
@@ -96,7 +96,7 @@ public partial class DrawIDButton : Button
 		timer.Stop();
 	}
 
-	public void _on_button_down()
+	public void _OnButtonDown()
 	{
 		RamdSum();
 		GetNode<Window>("Window").Visible = true;
@@ -109,11 +109,11 @@ public partial class DrawIDButton : Button
 		GetNode<Label>("Label").Text = " ";
 	}
 
-	public void _on_button_button_down()
+	public void _OnResetButtonDown()
 	{
 		ResetIdTable();
 		GD.Print("重置按钮被点击");
-		GD.Print("剩余学号：", usedNumbers);
+		GD.Print("剩余学号：", String.Join(", ", usedNumbers));
 		GD.Print("剩余数组大小：", usedNumbers.Count);
 		GetNode<Label>("Label").Text = "  重置成功！";
 		timerResetText.Start();

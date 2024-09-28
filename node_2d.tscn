@@ -1,9 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://crh0wya5rua77"]
+[gd_scene load_steps=5 format=3 uid="uid://crh0wya5rua77"]
 
 [ext_resource type="Script" path="res://DrawIDButton.cs" id="1_cov2b"]
 [ext_resource type="FontFile" uid="uid://cofdusi6aylde" path="res://MiSans-Demibold.ttf" id="3_1i2d2"]
+[ext_resource type="Script" path="res://area_2d.gd" id="3_8f78t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ihe3"]
+size = Vector2(361, 475)
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_8f78t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(175.5, 227.5)
+shape = SubResource("RectangleShape2D_5ihe3")
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = 14
@@ -92,5 +103,6 @@ theme_override_font_sizes/font_size = 20
 text = "重置"
 script = ExtResource("1_cov2b")
 
-[connection signal="button_down" from="Button" to="Button" method="_on_button_down"]
-[connection signal="button_down" from="Button/Button" to="Button" method="_on_button_button_down"]
+[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
+[connection signal="button_down" from="Button" to="Button" method="_OnButtonDown"]
+[connection signal="button_down" from="Button/Button" to="Button" method="_OnResetButtonDown"]
