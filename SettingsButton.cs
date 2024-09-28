@@ -18,7 +18,7 @@ public partial class SettingsButton : Button
 	{
 		GetNode<Window>("Window").Visible = true;
 	}
-
+	
 	public void _OnCloseButtonDown()
 	{
 		GetNode<Window>("Window").Visible = false;

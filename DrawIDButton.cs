@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Threading;
 using Godot;
 using Timer = Godot.Timer;
 
@@ -11,7 +10,6 @@ public partial class DrawIDButton : Button
 	private Timer timer;
 	private Timer timerText;
 	private Timer timerResetText;
-	private Timer splashTimer;
 	private static List<int> numbers = new List<int> {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38};
 	private List<int> usedNumbers = new List<int>(numbers);
 
@@ -34,14 +32,7 @@ public partial class DrawIDButton : Button
 		timerResetText.WaitTime = 1;
 		timerResetText.Connect("timeout", Callable.From(CleanResetText));
 		timerResetText.OneShot = true;
-
-		splashTimer = new Timer();
-		AddChild(splashTimer);
-		splashTimer.WaitTime = 2;
-		splashTimer.Connect("timeout", Callable.From(CloseSplashText));
-		splashTimer.OneShot = true;
-		GetNode<Label>("Label").Text = " 点击按钮抽取学号";
-		splashTimer.Start();
+		
 	}
 
 	public void _Process(float delta)
@@ -103,12 +94,6 @@ public partial class DrawIDButton : Button
 	{
 		GetNode<Window>("Window").Visible = false;
 		timer.Stop();
-	}
-	
-	private void CloseSplashText()
-	{
-		GetNode<Label>("Label").Text = " ";
-		splashTimer.Stop();
 	}
 	
 	public void _OnButtonDown()

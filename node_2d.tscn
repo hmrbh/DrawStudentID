@@ -130,6 +130,15 @@ visible = false
 always_on_top = true
 popup_window = true
 
+[node name="ColorRect" type="ColorRect" parent="SettingsButton/Window"]
+light_mask = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0509804, 0.0509804, 0.0509804, 1)
+
 [node name="Button" type="Button" parent="SettingsButton/Window"]
 anchors_preset = 12
 anchor_top = 1.0
@@ -143,9 +152,6 @@ theme_override_font_sizes/font_size = 35
 text = "关闭"
 
 [node name="TabBar" type="TabBar" parent="SettingsButton/Window"]
-anchors_preset = -1
-anchor_right = 0.26
-anchor_bottom = 0.062
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_1i2d2")
 theme_override_font_sizes/font_size = 20
@@ -158,8 +164,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TabContainer" type="TabContainer" parent="SettingsButton/Window/TabBar"]
 layout_mode = 1
-offset_right = 192.0
-offset_bottom = 92.0
+offset_right = 148.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 25
 current_tab = 0
 clip_tabs = false
 drag_to_rearrange_enabled = true
@@ -168,13 +175,45 @@ drag_to_rearrange_enabled = true
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="CheckButton" type="CheckButton" parent="SettingsButton/Window/TabBar/TabContainer/通用"]
+[node name="Label" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/通用"]
 layout_mode = 2
-text = "设置抽学号界面语言"
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
 
-[node name="CheckButton2" type="CheckButton" parent="SettingsButton/Window/TabBar/TabContainer/通用"]
-layout_mode = 2
-text = "语言"
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/通用/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.424
+anchor_top = 0.224
+anchor_right = 0.432
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/通用/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.231
+anchor_right = 1.0
+anchor_bottom = 0.445
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
 
 [node name="高级" type="VBoxContainer" parent="SettingsButton/Window/TabBar/TabContainer"]
 visible = false
@@ -194,3 +233,6 @@ text = "语言1"
 [connection signal="button_down" from="DrawButton/ResetButton" to="DrawButton" method="_OnResetButtonDown"]
 [connection signal="button_down" from="SettingsButton" to="SettingsButton" method="_OnSettingsButtonDown"]
 [connection signal="button_down" from="SettingsButton/Window/Button" to="SettingsButton" method="_OnCloseButtonDown"]
+[connection signal="ready" from="SettingsButton/Window/TabBar/TabContainer/通用/Label/min" to="." method="_on_min_id_text_edit_ready"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/通用/Label/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/通用/Label/max" to="." method="_on_max_id_text_edit_changed"]
