@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://crh0wya5rua77"]
 
 [ext_resource type="Script" path="res://data_draw_id.gd" id="1_2llc1"]
-[ext_resource type="Script" path="res://DrawIDButton.cs" id="1_cov2b"]
 [ext_resource type="FontFile" uid="uid://cofdusi6aylde" path="res://MiSans-Demibold.ttf" id="3_1i2d2"]
 [ext_resource type="Script" path="res://area_2d.gd" id="3_8f78t"]
-[ext_resource type="Script" path="res://SettingsButton.cs" id="4_sm1j0"]
+[ext_resource type="Script" path="res://draw_button.gd" id="3_aj3ld"]
+[ext_resource type="Script" path="res://settings_button.gd" id="5_68gxg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ihe3"]
 size = Vector2(361, 475)
@@ -32,7 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "  抽学号  "
-script = ExtResource("1_cov2b")
+script = ExtResource("3_aj3ld")
 
 [node name="Window" type="Window" parent="DrawButton"]
 positional_shadow_atlas_size = 0
@@ -102,24 +102,23 @@ anchor_left = 1.043
 anchor_top = 0.24
 anchor_right = 1.043
 anchor_bottom = 0.24
-offset_left = 4.96999
+offset_left = -1.03001
 offset_top = -17.48
-offset_right = 49.97
-offset_bottom = 12.52
+offset_right = 46.97
+offset_bottom = 17.52
 theme_override_fonts/font = ExtResource("3_1i2d2")
 theme_override_font_sizes/font_size = 20
 text = "重置"
-script = ExtResource("1_cov2b")
 
 [node name="SettingsButton" type="Button" parent="."]
-offset_left = 300.0
-offset_top = 325.0
-offset_right = 345.0
+offset_left = 295.0
+offset_top = 320.0
+offset_right = 343.0
 offset_bottom = 355.0
 theme_override_fonts/font = ExtResource("3_1i2d2")
 theme_override_font_sizes/font_size = 20
 text = "设置"
-script = ExtResource("4_sm1j0")
+script = ExtResource("5_68gxg")
 
 [node name="Window" type="Window" parent="SettingsButton"]
 auto_translate_mode = 1
@@ -127,6 +126,7 @@ title = "设置"
 initial_position = 1
 size = Vector2i(600, 500)
 visible = false
+unresizable = true
 always_on_top = true
 popup_window = true
 
@@ -228,11 +228,20 @@ text = "设置抽学号界面语言1"
 layout_mode = 2
 text = "语言1"
 
+[node name="AcceptDialog" type="AcceptDialog" parent="SettingsButton"]
+title = "错误"
+initial_position = 1
+size = Vector2i(288, 153)
+transient = false
+transient_to_focused = true
+always_on_top = true
+popup_window = true
+ok_button_text = "确认"
+
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
-[connection signal="button_down" from="DrawButton" to="DrawButton" method="_OnButtonDown"]
-[connection signal="button_down" from="DrawButton/ResetButton" to="DrawButton" method="_OnResetButtonDown"]
-[connection signal="button_down" from="SettingsButton" to="SettingsButton" method="_OnSettingsButtonDown"]
-[connection signal="button_down" from="SettingsButton/Window/Button" to="SettingsButton" method="_OnCloseButtonDown"]
-[connection signal="ready" from="SettingsButton/Window/TabBar/TabContainer/通用/Label/min" to="." method="_on_min_id_text_edit_ready"]
+[connection signal="button_down" from="DrawButton" to="DrawButton" method="_on_button_down"]
+[connection signal="button_down" from="DrawButton/ResetButton" to="DrawButton" method="_on_reset_button_down"]
+[connection signal="button_down" from="SettingsButton" to="SettingsButton" method="_on_settings_button_down"]
+[connection signal="button_down" from="SettingsButton/Window/Button" to="SettingsButton" method="_on_close_button_down"]
 [connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/通用/Label/min" to="." method="_on_min_id_text_edit_changed"]
 [connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/通用/Label/max" to="." method="_on_max_id_text_edit_changed"]
