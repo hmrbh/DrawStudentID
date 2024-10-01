@@ -1,9 +1,16 @@
 extends Area2D
 
 var drag_pos: Vector2i
+var timer: Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = 0.2
+	timer.connect("timeout", save_window_pos)
+	timer.one_shot = false
+	
 	DisplayServer.window_set_position(read_window_pos())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -12,9 +19,6 @@ func _process(delta: float) -> void:
 			# 让窗体边框与鼠标一直保持相同的距离，这样的拖动效果更自然
 			drag_pos = DisplayServer.mouse_get_position() + pos_difference
 			DisplayServer.window_set_position(drag_pos)
-			record_window_pos(drag_pos)
-			print("当前窗口位置：", drag_pos)
-	record_window_pos(DisplayServer.window_get_position())
 
 var pos_difference: Vector2i
 var can_dragging = false
@@ -29,14 +33,15 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			else:
 				can_dragging = false
 
-func record_window_pos(pos: Vector2i) -> void:
+func save_window_pos() -> void:
+	var window_pos = DisplayServer.window_get_position()
 	var config = ConfigFile.new()
 	config.save("./SettingsData.cfg")
 	config.load("./SettingsData.cfg")
-	config.set_value("WindowPosition", "x", str(pos.x))
-	config.set_value("WindowPosition", "y", str(pos.y))
+	config.set_value("WindowPosition", "x", str(window_pos.x))
+	config.set_value("WindowPosition", "y", str(window_pos.y))
 	config.save("./SettingsData.cfg")
-	print("保存窗口位置信息：", pos)
+	print("保存窗口位置信息：", window_pos)
 
 func read_window_pos() -> Vector2i:
 	var config = ConfigFile.new()
@@ -44,5 +49,16 @@ func read_window_pos() -> Vector2i:
 	if err != OK:
 		config.save("./SettingsData.cfg")
 		config.load("./SettingsData.cfg")
-		return Vector2i(0,0)
-	return Vector2i(int(config.get_value("WindowPosition", "x")),int(config.get_value("WindowPosition", "y")))
+		save_window_pos()
+		return DisplayServer.window_get_position()
+	else:
+		# 配置文件内容为空或缺少键值，无法读取到内容
+		if !config.get_value("WindowPosition", "x", false):
+			save_window_pos()
+		# config.get_value()
+		# 第三个参数表示如果没有读取到内容，返回什么值
+		# 所以这个参数必须为整数
+		return Vector2i(
+			int(config.get_value("WindowPosition", "x", 0)),
+			int(config.get_value("WindowPosition", "y", 0))
+			)
