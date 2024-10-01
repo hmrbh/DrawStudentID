@@ -2,3 +2,6 @@
 .godot/
 /android/
 Godot_v4.3-stable_win64.exe
+sqlite_data.db
+*.db
+*.cfg

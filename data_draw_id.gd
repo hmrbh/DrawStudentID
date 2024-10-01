@@ -13,8 +13,8 @@ func _ready() -> void:
 		database.query("INSERT INTO id_range (min, max) VALUES (1, 10);")
 		print("检测到键值为空，插入一些初始数据防止更新失败")
 	var loded_id_range = database.select_rows("id_range", "", ["*"])[0]
-	$"SettingsButton/Window/TabBar/TabContainer/通用/Label/min".text =  str(loded_id_range["min"])
-	$"SettingsButton/Window/TabBar/TabContainer/通用/Label/max".text =  str(loded_id_range["max"])
+	$"SettingsButton/Window/TabBar/TabContainer/通用/通用/Label/min".text =  str(loded_id_range["min"])
+	$"SettingsButton/Window/TabBar/TabContainer/通用/通用/Label/max".text =  str(loded_id_range["max"])
 	max_id = int(database.select_rows("id_range", "", ["max"])[0]["max"])
 	min_id = int(database.select_rows("id_range", "", ["min"])[0]["min"])
 

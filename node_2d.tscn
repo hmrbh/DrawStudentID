@@ -152,42 +152,49 @@ theme_override_font_sizes/font_size = 35
 text = "关闭"
 
 [node name="TabBar" type="TabBar" parent="SettingsButton/Window"]
-size_flags_horizontal = 4
+size_flags_horizontal = 10
+size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_1i2d2")
 theme_override_font_sizes/font_size = 20
 tab_alignment = 1
 clip_tabs = false
-drag_to_rearrange_enabled = true
 scroll_to_selected = false
 select_with_rmb = true
 metadata/_edit_use_anchors_ = true
 
 [node name="TabContainer" type="TabContainer" parent="SettingsButton/Window/TabBar"]
-layout_mode = 1
-offset_right = 148.0
-offset_bottom = 70.0
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 450.0
 theme_override_font_sizes/font_size = 25
 current_tab = 0
 clip_tabs = false
 drag_to_rearrange_enabled = true
 
-[node name="通用" type="VBoxContainer" parent="SettingsButton/Window/TabBar/TabContainer"]
+[node name="通用" type="ScrollContainer" parent="SettingsButton/Window/TabBar/TabContainer"]
 layout_mode = 2
+size_flags_stretch_ratio = 0.0
+horizontal_scroll_mode = 0
 metadata/_tab_index = 0
 
-[node name="Label" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/通用"]
+[node name="通用" type="VBoxContainer" parent="SettingsButton/Window/TabBar/TabContainer/通用"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/通用/通用"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "设置学号范围
 从               到"
 vertical_alignment = 3
 
-[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/通用/Label"]
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/通用/通用/Label"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.424
+anchor_left = 0.09
 anchor_top = 0.224
-anchor_right = 0.432
+anchor_right = 0.126
 anchor_bottom = 0.418
 offset_top = 10.0
 offset_bottom = 40.0
@@ -198,13 +205,13 @@ placeholder_text = "最小值"
 alignment = 1
 clear_button_enabled = true
 
-[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/通用/Label"]
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/通用/通用/Label"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 0.231
-anchor_right = 1.0
-anchor_bottom = 0.445
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
 offset_left = 50.0
 offset_top = 10.0
 offset_bottom = 40.0
@@ -215,20 +222,3617 @@ placeholder_text = "最大值"
 alignment = 1
 clear_button_enabled = true
 
-[node name="高级" type="VBoxContainer" parent="SettingsButton/Window/TabBar/TabContainer"]
+[node name="高级" type="ScrollContainer" parent="SettingsButton/Window/TabBar/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="CheckButton" type="CheckButton" parent="SettingsButton/Window/TabBar/TabContainer/高级"]
+[node name="高级" type="VBoxContainer" parent="SettingsButton/Window/TabBar/TabContainer/高级"]
 layout_mode = 2
-text = "设置抽学号界面语言1"
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="CheckButton2" type="CheckButton" parent="SettingsButton/Window/TabBar/TabContainer/高级"]
+[node name="Label" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
 layout_mode = 2
-text = "语言1"
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
 
-[node name="AcceptDialog" type="AcceptDialog" parent="SettingsButton"]
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label2" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label3" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label4" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label5" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label6" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label7" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label8" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label9" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label9"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label9"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label10" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label10"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label10"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label11" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label11"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label11"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label12" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label12"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label12"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label13" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label13"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label13"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label14" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label14"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label14"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label15" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label15"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label15"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label16" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label16"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label16"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label17" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label17"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label17"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label18" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label18"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label18"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label19" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label19"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label19"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label20" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label20"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label20"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label21" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label21"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label21"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label22" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label22"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label22"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label23" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label23"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label23"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label24" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label24"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label24"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label25" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label25"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label25"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label26" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label26"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label26"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label27" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label27"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label27"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label28" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label28"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label28"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label29" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label29"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label29"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label30" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label30"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label30"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label31" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label31"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label31"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label32" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label32"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label32"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label33" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label33"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label33"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label34" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label34"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label34"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label35" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label35"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label35"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label36" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label36"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label36"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label37" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label37"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label37"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label38" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label38"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label38"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label39" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label39"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label39"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label40" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label40"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label40"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label41" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label41"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label41"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label42" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label42"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label42"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label43" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label43"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label43"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label44" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label44"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label44"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label45" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label45"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label45"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label46" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label46"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label46"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label47" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label47"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label47"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label48" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label48"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label48"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label49" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label49"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label49"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label50" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label50"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label50"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label51" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label51"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label51"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label52" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label52"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label52"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label53" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label53"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label53"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label54" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label54"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label54"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label55" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label55"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label55"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label56" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label56"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label56"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label57" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label57"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label57"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label58" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label58"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label58"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label59" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label59"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label59"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label60" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label60"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label60"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label61" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label61"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label61"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label62" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label62"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label62"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label63" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label63"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label63"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label64" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label64"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label64"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label65" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label65"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label65"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label66" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label66"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label66"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label67" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label67"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label67"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label68" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label68"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label68"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label69" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label69"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label69"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label70" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label70"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label70"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label71" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label71"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label71"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label72" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label72"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label72"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label73" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label73"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label73"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label74" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label74"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label74"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label75" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label75"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label75"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label76" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label76"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label76"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label77" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label77"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label77"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label78" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label78"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label78"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label79" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label79"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label79"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label80" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label80"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label80"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label81" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label81"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label81"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label82" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label82"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label82"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label83" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label83"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label83"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label84" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label84"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label84"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label85" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label85"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label85"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label86" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label86"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label86"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label87" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label87"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label87"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label88" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label88"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label88"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label89" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label89"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label89"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="Label90" type="Label" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "设置学号范围
+从               到"
+vertical_alignment = 3
+
+[node name="min" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label90"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.224
+anchor_right = 0.126
+anchor_bottom = 0.418
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最小值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="max" type="LineEdit" parent="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label90"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.305
+anchor_right = 0.357
+anchor_bottom = 0.399
+offset_left = 50.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+placeholder_text = "最大值"
+alignment = 1
+clear_button_enabled = true
+
+[node name="AcceptDialog" type="AcceptDialog" parent="SettingsButton/Window"]
 title = "错误"
 initial_position = 1
 size = Vector2i(288, 153)
@@ -243,5 +3847,185 @@ ok_button_text = "确认"
 [connection signal="button_down" from="DrawButton/ResetButton" to="DrawButton" method="_on_reset_button_down"]
 [connection signal="button_down" from="SettingsButton" to="SettingsButton" method="_on_settings_button_down"]
 [connection signal="button_down" from="SettingsButton/Window/Button" to="SettingsButton" method="_on_close_button_down"]
-[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/通用/Label/min" to="." method="_on_min_id_text_edit_changed"]
-[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/通用/Label/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/通用/通用/Label/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/通用/通用/Label/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label2/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label2/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label3/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label3/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label4/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label4/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label5/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label5/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label6/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label6/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label7/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label7/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label8/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label8/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label9/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label9/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label10/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label10/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label11/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label11/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label12/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label12/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label13/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label13/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label14/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label14/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label15/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label15/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label16/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label16/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label17/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label17/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label18/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label18/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label19/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label19/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label20/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label20/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label21/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label21/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label22/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label22/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label23/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label23/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label24/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label24/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label25/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label25/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label26/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label26/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label27/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label27/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label28/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label28/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label29/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label29/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label30/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label30/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label31/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label31/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label32/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label32/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label33/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label33/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label34/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label34/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label35/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label35/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label36/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label36/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label37/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label37/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label38/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label38/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label39/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label39/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label40/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label40/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label41/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label41/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label42/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label42/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label43/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label43/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label44/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label44/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label45/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label45/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label46/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label46/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label47/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label47/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label48/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label48/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label49/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label49/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label50/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label50/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label51/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label51/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label52/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label52/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label53/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label53/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label54/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label54/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label55/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label55/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label56/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label56/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label57/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label57/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label58/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label58/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label59/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label59/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label60/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label60/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label61/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label61/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label62/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label62/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label63/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label63/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label64/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label64/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label65/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label65/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label66/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label66/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label67/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label67/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label68/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label68/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label69/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label69/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label70/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label70/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label71/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label71/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label72/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label72/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label73/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label73/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label74/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label74/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label75/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label75/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label76/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label76/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label77/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label77/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label78/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label78/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label79/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label79/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label80/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label80/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label81/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label81/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label82/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label82/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label83/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label83/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label84/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label84/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label85/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label85/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label86/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label86/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label87/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label87/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label88/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label88/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label89/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label89/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label90/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="SettingsButton/Window/TabBar/TabContainer/高级/高级/Label90/max" to="." method="_on_max_id_text_edit_changed"]
