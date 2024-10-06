@@ -5,11 +5,13 @@ var timer_text: Timer
 var timer_reset_text: Timer
 var numbers = []
 var used_numbers = []
+var max_id: int
+var min_id: int
+var exclude_id: String
+var is_node2d_init: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38]
-
 	timer = Timer.new()
 	add_child(timer)
 	timer.wait_time = 1
@@ -38,7 +40,18 @@ func shuffle_array(array: Array) -> void:
 		var temp = array[i]
 		array[i] = array[j]
 		array[j] = temp
-
+ 
+func gen_array() -> Array:
+	var temp:Array
+	var result:Array
+	var exclude_id_array = exclude_id.split(",", false)
+	for i in range(min_id, max_id+1):
+		temp.append(i)
+	for j in exclude_id_array:
+		temp.erase(int(j))
+	print("生成学号数组：", temp)
+	return temp
+	
 func gen_id(m_used_numbers: Array) -> void:
 	if m_used_numbers.size() > 0:
 		shuffle_array(m_used_numbers)
@@ -89,3 +102,30 @@ func _on_reset_button_down() -> void:
 func clean_reset_text() -> void:
 	$Label.text = " "
 	timer_reset_text.stop()
+
+func _on_node_2d_data_changed(new_data: Variant, type: Variant) -> void:
+	# 每次在设置中更改时都重置一下
+	if type == "max_id":
+		max_id = int(new_data)
+	elif type == "min_id":
+		min_id = int(new_data)
+	elif type == "exclude_id":
+		exclude_id = str(new_data)
+	else:
+		return
+	if is_node2d_init:
+		numbers = gen_array()
+		reset_id_table()
+		print("检测到学号设置被更改，重置列表")
+		print(numbers)
+
+func _on_node_2d_ready() -> void:
+	is_node2d_init = true
+	var parent = get_parent()
+	max_id = parent.get_max_id()
+	min_id = parent.get_min_id()
+	exclude_id = parent.get_exclude_id()
+	print("--------------------\n从父结点获取到学号信息：\n最大值：" + str(max_id) + "\n最小值：" + str(min_id) + "\n排除：" + str(exclude_id) + "\n--------------------")
+	numbers = gen_array()
+	reset_id_table()
+	

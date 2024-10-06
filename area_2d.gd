@@ -1,15 +1,18 @@
 extends Area2D
 
 var drag_pos: Vector2i
-var timer: Timer
+var timer2: Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	timer = Timer.new()
-	add_child(timer)
-	timer.wait_time = 0.2
-	timer.connect("timeout", save_window_pos)
-	timer.one_shot = false
+	DisplayServer.window_set_position(read_window_pos())
+	
+	timer2 = Timer.new()
+	add_child(timer2)
+	timer2.wait_time = 0.2
+	timer2.connect("timeout", save_window_pos)
+	timer2.one_shot = false
+	timer2.start()
 	
 	DisplayServer.window_set_position(read_window_pos())
 
@@ -41,7 +44,6 @@ func save_window_pos() -> void:
 	config.set_value("WindowPosition", "x", str(window_pos.x))
 	config.set_value("WindowPosition", "y", str(window_pos.y))
 	config.save("./SettingsData.cfg")
-	print("保存窗口位置信息：", window_pos)
 
 func read_window_pos() -> Vector2i:
 	var config = ConfigFile.new()
