@@ -22,9 +22,9 @@ func _ready() -> void:
 		print("检测到键值为空，插入一些初始数据防止更新失败")
 	var loded_id_range = database.select_rows("id_range", "", ["*"])[0]
 	print(loded_id_range)
-	$"SettingsButton/Window/TabBar/TabContainer/通用/通用/Label/min".text =  str(loded_id_range["min"])
-	$"SettingsButton/Window/TabBar/TabContainer/通用/通用/Label/max".text =  str(loded_id_range["max"])
-	$"SettingsButton/Window/TabBar/TabContainer/通用/通用/Label/exclude".text =  str(loded_id_range["exclude"])
+	$"Area2D/SettingsButton/Window/TabBar/TabContainer/通用/通用/Label/min".text =  str(loded_id_range["min"])
+	$"Area2D/SettingsButton/Window/TabBar/TabContainer/通用/通用/Label/max".text =  str(loded_id_range["max"])
+	$"Area2D/SettingsButton/Window/TabBar/TabContainer/通用/通用/Label/exclude".text =  str(loded_id_range["exclude"])
 	max_id = int(database.select_rows("id_range", "", ["max"])[0]["max"])
 	min_id = int(database.select_rows("id_range", "", ["min"])[0]["min"])
 	exclude_id = str(database.select_rows("id_range", "", ["exclude"])[0]["exclude"])
