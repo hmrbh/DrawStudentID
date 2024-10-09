@@ -7,3 +7,5 @@ sqlite_data.db
 *.cfg
 *.exe
 addons/godot-sqlite/bin/~libgdsqlite.windows.template_debug.x86_64.dll
+addons/godot-sqlite/bin/~libgdsqlite.windows.template_debug.x86_64.dll
+addons/godot-sqlite/bin/~libgdsqlite.windows.template_debug.x86_64.dll
