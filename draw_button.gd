@@ -86,10 +86,11 @@ func _on_button_down() -> void:
 	sum_rand_number()
 	$Window.visible = true
 	timer.start()
+	timer_text.start()
 	
 func clean_text() -> void:
 	timer_text.stop()
-	$Label.text = " "
+	$"Label".text = " "
 
 func _on_reset_button_down() -> void:
 	reset_id_table()

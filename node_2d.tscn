@@ -7,9 +7,6 @@
 [ext_resource type="Script" path="res://settings_button.gd" id="5_68gxg"]
 [ext_resource type="Texture2D" uid="uid://bbvdvpw8h3iv8" path="res://icon_128x128.png" id="6_gbgvm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ihe3"]
-size = Vector2(361, 475)
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yk14q"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ur1bf"]
@@ -26,27 +23,13 @@ texture_repeat = 3
 texture = SubResource("CanvasTexture_tfpuq")
 modulate_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ihe3"]
+size = Vector2(350, 451)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_2llc1")
 
-[node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("3_8f78t")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(180, 223)
-shape = SubResource("RectangleShape2D_5ihe3")
-
-[node name="SettingsButton" type="Button" parent="Area2D"]
-offset_left = 295.0
-offset_top = 320.0
-offset_right = 343.0
-offset_bottom = 355.0
-theme_override_fonts/font = ExtResource("3_1i2d2")
-theme_override_font_sizes/font_size = 20
-text = "设置"
-script = ExtResource("5_68gxg")
-
-[node name="Window" type="Window" parent="Area2D/SettingsButton"]
+[node name="Window" type="Window" parent="."]
 auto_translate_mode = 1
 title = "设置"
 initial_position = 1
@@ -56,7 +39,7 @@ unresizable = true
 always_on_top = true
 popup_window = true
 
-[node name="ColorRect" type="ColorRect" parent="Area2D/SettingsButton/Window"]
+[node name="ColorRect" type="ColorRect" parent="Window"]
 light_mask = 0
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,7 +48,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.152941, 0.152941, 0.152941, 1)
 
-[node name="Button" type="Button" parent="Area2D/SettingsButton/Window"]
+[node name="Button" type="Button" parent="Window"]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -77,7 +60,7 @@ theme_override_fonts/font = ExtResource("3_1i2d2")
 theme_override_font_sizes/font_size = 35
 text = "关闭"
 
-[node name="TabBar" type="TabBar" parent="Area2D/SettingsButton/Window"]
+[node name="TabBar" type="TabBar" parent="Window"]
 size_flags_horizontal = 10
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_1i2d2")
@@ -88,7 +71,7 @@ scroll_to_selected = false
 select_with_rmb = true
 metadata/_edit_use_anchors_ = true
 
-[node name="TabContainer" type="TabContainer" parent="Area2D/SettingsButton/Window/TabBar"]
+[node name="TabContainer" type="TabContainer" parent="Window/TabBar"]
 layout_mode = 0
 offset_right = 600.0
 offset_bottom = 450.0
@@ -97,18 +80,18 @@ current_tab = 0
 clip_tabs = false
 drag_to_rearrange_enabled = true
 
-[node name="通用" type="ScrollContainer" parent="Area2D/SettingsButton/Window/TabBar/TabContainer"]
+[node name="通用" type="ScrollContainer" parent="Window/TabBar/TabContainer"]
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 horizontal_scroll_mode = 0
 metadata/_tab_index = 0
 
-[node name="通用" type="VBoxContainer" parent="Area2D/SettingsButton/Window/TabBar/TabContainer/通用"]
+[node name="通用" type="VBoxContainer" parent="Window/TabBar/TabContainer/通用"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="Area2D/SettingsButton/Window/TabBar/TabContainer/通用/通用"]
+[node name="Label" type="Label" parent="Window/TabBar/TabContainer/通用/通用"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "设置学号范围
@@ -119,7 +102,7 @@ text = "设置学号范围
  "
 vertical_alignment = 3
 
-[node name="min" type="LineEdit" parent="Area2D/SettingsButton/Window/TabBar/TabContainer/通用/通用/Label"]
+[node name="min" type="LineEdit" parent="Window/TabBar/TabContainer/通用/通用/Label"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.09
@@ -135,7 +118,7 @@ placeholder_text = "最小值"
 alignment = 1
 clear_button_enabled = true
 
-[node name="max" type="LineEdit" parent="Area2D/SettingsButton/Window/TabBar/TabContainer/通用/通用/Label"]
+[node name="max" type="LineEdit" parent="Window/TabBar/TabContainer/通用/通用/Label"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.147
@@ -152,7 +135,7 @@ placeholder_text = "最大值"
 alignment = 1
 clear_button_enabled = true
 
-[node name="exclude" type="LineEdit" parent="Area2D/SettingsButton/Window/TabBar/TabContainer/通用/通用/Label"]
+[node name="exclude" type="LineEdit" parent="Window/TabBar/TabContainer/通用/通用/Label"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.594
@@ -168,7 +151,7 @@ placeholder_text = "用英文逗号','分隔"
 alignment = 1
 clear_button_enabled = true
 
-[node name="Label2" type="Label" parent="Area2D/SettingsButton/Window/TabBar/TabContainer/通用/通用"]
+[node name="Label2" type="Label" parent="Window/TabBar/TabContainer/通用/通用"]
 visible = false
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
@@ -177,7 +160,7 @@ theme_override_font_sizes/font_size = 20
 text = "是否启用开机自启动"
 vertical_alignment = 1
 
-[node name="AddStartupCheckButton" type="CheckButton" parent="Area2D/SettingsButton/Window/TabBar/TabContainer/通用/通用/Label2"]
+[node name="AddStartupCheckButton" type="CheckButton" parent="Window/TabBar/TabContainer/通用/通用/Label2"]
 visible = false
 material = SubResource("CanvasItemMaterial_yk14q")
 layout_mode = 0
@@ -188,15 +171,15 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_ur1b
 theme_override_styles/pressed = SubResource("StyleBoxTexture_dq7x8")
 theme_override_styles/normal = SubResource("StyleBoxTexture_r8vdu")
 
-[node name="高级" type="ScrollContainer" parent="Area2D/SettingsButton/Window/TabBar/TabContainer"]
+[node name="高级" type="ScrollContainer" parent="Window/TabBar/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="高级" type="VBoxContainer" parent="Area2D/SettingsButton/Window/TabBar/TabContainer/高级"]
+[node name="高级" type="VBoxContainer" parent="Window/TabBar/TabContainer/高级"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Area2D/SettingsButton/Window/TabBar/TabContainer/高级/高级"]
+[node name="Label" type="Label" parent="Window/TabBar/TabContainer/高级/高级"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "该板块正在开发中
@@ -258,17 +241,17 @@ text = "该板块正在开发中
 
 啥也没有"
 
-[node name="关于" type="ScrollContainer" parent="Area2D/SettingsButton/Window/TabBar/TabContainer"]
+[node name="关于" type="ScrollContainer" parent="Window/TabBar/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="关于" type="VBoxContainer" parent="Area2D/SettingsButton/Window/TabBar/TabContainer/关于"]
+[node name="关于" type="VBoxContainer" parent="Window/TabBar/TabContainer/关于"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="Label" type="Label" parent="Area2D/SettingsButton/Window/TabBar/TabContainer/关于/关于"]
+[node name="Label" type="Label" parent="Window/TabBar/TabContainer/关于/关于"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
@@ -278,11 +261,11 @@ text = "
 
 抽学号小程序"
 
-[node name="Sprite2D2" type="Sprite2D" parent="Area2D/SettingsButton/Window/TabBar/TabContainer/关于/关于"]
+[node name="Sprite2D2" type="Sprite2D" parent="Window/TabBar/TabContainer/关于/关于"]
 position = Vector2(120, 30)
 texture = ExtResource("6_gbgvm")
 
-[node name="Label2" type="Label" parent="Area2D/SettingsButton/Window/TabBar/TabContainer/关于/关于"]
+[node name="Label2" type="Label" parent="Window/TabBar/TabContainer/关于/关于"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
@@ -292,7 +275,7 @@ theme_override_font_sizes/font_size = 15
 text = "   版本：v3.0.0
 "
 
-[node name="Label4" type="Label" parent="Area2D/SettingsButton/Window/TabBar/TabContainer/关于/关于"]
+[node name="Label4" type="Label" parent="Window/TabBar/TabContainer/关于/关于"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
@@ -301,7 +284,7 @@ theme_override_font_sizes/font_size = 20
 text = "  开发者：郝治平
 "
 
-[node name="Label3" type="Label" parent="Area2D/SettingsButton/Window/TabBar/TabContainer/关于/关于"]
+[node name="Label3" type="Label" parent="Window/TabBar/TabContainer/关于/关于"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
@@ -310,7 +293,7 @@ theme_override_fonts/font = ExtResource("3_1i2d2")
 theme_override_font_sizes/font_size = 15
 text = "  1218271192@qq.com"
 
-[node name="AcceptDialog" type="AcceptDialog" parent="Area2D/SettingsButton/Window"]
+[node name="AcceptDialog" type="AcceptDialog" parent="Window"]
 title = "错误"
 initial_position = 1
 size = Vector2i(288, 153)
@@ -319,6 +302,23 @@ transient_to_focused = true
 always_on_top = true
 popup_window = true
 ok_button_text = "确认"
+
+[node name="SettingsButton" type="Button" parent="."]
+offset_left = 295.0
+offset_top = 320.0
+offset_right = 343.0
+offset_bottom = 355.0
+theme_override_fonts/font = ExtResource("3_1i2d2")
+theme_override_font_sizes/font_size = 20
+text = "设置"
+script = ExtResource("5_68gxg")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_8f78t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(176, 223.5)
+shape = SubResource("RectangleShape2D_5ihe3")
 
 [node name="DrawButton" type="Button" parent="."]
 anchors_preset = 14
@@ -413,12 +413,12 @@ text = "重置"
 
 [connection signal="data_changed" from="." to="DrawButton" method="_on_node_2d_data_changed"]
 [connection signal="ready" from="." to="DrawButton" method="_on_node_2d_ready"]
+[connection signal="button_down" from="Window/Button" to="SettingsButton" method="_on_close_button_down"]
+[connection signal="text_changed" from="Window/TabBar/TabContainer/通用/通用/Label/min" to="." method="_on_min_id_text_edit_changed"]
+[connection signal="text_changed" from="Window/TabBar/TabContainer/通用/通用/Label/max" to="." method="_on_max_id_text_edit_changed"]
+[connection signal="text_changed" from="Window/TabBar/TabContainer/通用/通用/Label/exclude" to="." method="_on_exclude_id_text_edit_changed"]
+[connection signal="toggled" from="Window/TabBar/TabContainer/通用/通用/Label2/AddStartupCheckButton" to="SettingsButton" method="_on_startup_check_button_toggled"]
+[connection signal="button_down" from="SettingsButton" to="SettingsButton" method="_on_settings_button_down"]
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
-[connection signal="button_down" from="Area2D/SettingsButton" to="Area2D/SettingsButton" method="_on_settings_button_down"]
-[connection signal="button_down" from="Area2D/SettingsButton/Window/Button" to="Area2D/SettingsButton" method="_on_close_button_down"]
-[connection signal="text_changed" from="Area2D/SettingsButton/Window/TabBar/TabContainer/通用/通用/Label/min" to="." method="_on_min_id_text_edit_changed"]
-[connection signal="text_changed" from="Area2D/SettingsButton/Window/TabBar/TabContainer/通用/通用/Label/max" to="." method="_on_max_id_text_edit_changed"]
-[connection signal="text_changed" from="Area2D/SettingsButton/Window/TabBar/TabContainer/通用/通用/Label/exclude" to="." method="_on_exclude_id_text_edit_changed"]
-[connection signal="toggled" from="Area2D/SettingsButton/Window/TabBar/TabContainer/通用/通用/Label2/AddStartupCheckButton" to="Area2D/SettingsButton" method="_on_startup_check_button_toggled"]
 [connection signal="button_down" from="DrawButton" to="DrawButton" method="_on_button_down"]
 [connection signal="button_down" from="DrawButton/ResetButton" to="DrawButton" method="_on_reset_button_down"]
