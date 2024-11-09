@@ -64,13 +64,14 @@ func _on_min_id_text_edit_changed(new_text: String) -> void:
 		show_settings_error_dialog("位于设置->通用->设置学号范围->学号最小值输入框", "请检查您是否在此输入了非整数值")
 		return
 		
-	if int(new_text) > int(max_id):
+	if int(new_text) > int(max_id) and not new_text.is_empty():
 		print("错误输入！")
 		show_settings_error_dialog("位于设置->通用->设置学号范围->学号最小值输入框", "最小学号必须小于最大学号")
 		return
-	var new_min_id = int(new_text)
-	print("调整最小学号为：", change_data_by_key("min", new_min_id))
-	update_data(new_min_id, "min_id")
+	elif not new_text.is_empty():
+		var new_min_id = int(new_text)
+		print("调整最小学号为：", change_data_by_key("min", new_min_id))
+		update_data(new_min_id, "min_id")
 
 func _on_max_id_text_edit_changed(new_text: String) -> void:
 	# 如果输入了非数字值就不记录直接退出
@@ -78,10 +79,15 @@ func _on_max_id_text_edit_changed(new_text: String) -> void:
 		print("错误输入！")
 		show_settings_error_dialog("位于设置->通用->设置学号范围->学号最大值输入框", "请检查您是否在此输入了非整数值")
 		return
-	
-	var new_max_id = int(new_text)
-	print("调整最大学号为：", change_data_by_key("max", new_max_id))
-	update_data(new_max_id, "max_id")
+		
+	if int(new_text) < int(min_id) and not new_text.is_empty():
+		print("错误输入！")
+		show_settings_error_dialog("位于设置->通用->设置学号范围->学号最大值输入框", "最大学号必须大于最小学号")
+		return
+	elif not new_text.is_empty():
+		var new_max_id = int(new_text)
+		print("调整最大学号为：", change_data_by_key("max", new_max_id))
+		update_data(new_max_id, "max_id")
 	
 func show_settings_error_dialog(location: String, tip_msg: String) -> void:
 	$Window/AcceptDialog.visible = true
