@@ -63,6 +63,11 @@ func _on_min_id_text_edit_changed(new_text: String) -> void:
 		print("错误输入！")
 		show_settings_error_dialog("位于设置->通用->设置学号范围->学号最小值输入框", "请检查您是否在此输入了非整数值")
 		return
+		
+	if int(new_text) > int(max_id):
+		print("错误输入！")
+		show_settings_error_dialog("位于设置->通用->设置学号范围->学号最小值输入框", "最小学号必须小于最大学号")
+		return
 	var new_min_id = int(new_text)
 	print("调整最小学号为：", change_data_by_key("min", new_min_id))
 	update_data(new_min_id, "min_id")
@@ -79,8 +84,8 @@ func _on_max_id_text_edit_changed(new_text: String) -> void:
 	update_data(new_max_id, "max_id")
 	
 func show_settings_error_dialog(location: String, tip_msg: String) -> void:
-	$SettingsButton/Window/AcceptDialog.visible = true
-	$SettingsButton/Window/AcceptDialog.dialog_text = "您在设置项中输入了错误的内容\n" + location + "\n" + tip_msg
+	$Window/AcceptDialog.visible = true
+	$Window/AcceptDialog.dialog_text = "您在设置项中输入了错误的内容\n" + location + "\n" + tip_msg
 
 
 func _on_exclude_id_text_edit_changed(new_text: String) -> void:
