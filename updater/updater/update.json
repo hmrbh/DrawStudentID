@@ -1,0 +1,31 @@
+﻿{
+  "version":
+  {
+    "major": 0,
+    "minor": 1,
+    "patch": 1,
+    "build": 0,
+    "channel": "stable",
+    "publish_date": "UTC+8 2024-11-8 8:30",
+    "release_notes": "1、优化了UI界面；\n2、修复了一些已知问题；\n3、新增了一些功能。",
+    "mandatory": false
+  },
+  "file_changes":
+  {
+    "delete": [
+      {
+        "name": "old_file.txt",
+        "size": 3523520,
+        "sha256": "c44fadc4c810f856467330a4834d7a66577f16f03ce59877ca13514b432780c4"
+      }
+    ],
+    "update": [
+      {
+        "name": "updater.exe",
+        "size": 138752,
+        "sha256": "4bfa9bfdbf2a5abf75d0df23f8f7afad0cb25014e99bc7f95e11ec9b6e7726ff"
+      }
+    ]
+  },
+  "inherit": true
+}

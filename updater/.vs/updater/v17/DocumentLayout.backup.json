@@ -1,0 +1,142 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Code\\C#\\updater\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0FFE04CC-7A7F-4362-B7FC-52C557232987}|updater\\updater.csproj|e:\\code\\c#\\updater\\updater\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FFE04CC-7A7F-4362-B7FC-52C557232987}|updater\\updater.csproj|solutionrelative:updater\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FFE04CC-7A7F-4362-B7FC-52C557232987}|updater\\updater.csproj|e:\\code\\c#\\updater\\updater\\filedownloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FFE04CC-7A7F-4362-B7FC-52C557232987}|updater\\updater.csproj|solutionrelative:updater\\filedownloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FFE04CC-7A7F-4362-B7FC-52C557232987}|updater\\updater.csproj|e:\\code\\c#\\updater\\updater\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0FFE04CC-7A7F-4362-B7FC-52C557232987}|updater\\updater.csproj|solutionrelative:updater\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FFE04CC-7A7F-4362-B7FC-52C557232987}|updater\\updater.csproj|e:\\code\\c#\\updater\\updater\\debuglogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FFE04CC-7A7F-4362-B7FC-52C557232987}|updater\\updater.csproj|solutionrelative:updater\\debuglogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FFE04CC-7A7F-4362-B7FC-52C557232987}|updater\\updater.csproj|e:\\code\\c#\\updater\\updater\\filehasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FFE04CC-7A7F-4362-B7FC-52C557232987}|updater\\updater.csproj|solutionrelative:updater\\filehasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FFE04CC-7A7F-4362-B7FC-52C557232987}|updater\\updater.csproj|e:\\code\\c#\\updater\\updater\\update.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0FFE04CC-7A7F-4362-B7FC-52C557232987}|updater\\updater.csproj|solutionrelative:updater\\update.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FFE04CC-7A7F-4362-B7FC-52C557232987}|updater\\updater.csproj|e:\\code\\c#\\updater\\updater\\versioninfojson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FFE04CC-7A7F-4362-B7FC-52C557232987}|updater\\updater.csproj|solutionrelative:updater\\versioninfojson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "E:\\Code\\C#\\updater\\updater\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "updater\\MainWindow.xaml.cs",
+              "ToolTip": "E:\\Code\\C#\\updater\\updater\\MainWindow.xaml.cs*",
+              "RelativeToolTip": "updater\\MainWindow.xaml.cs*",
+              "ViewState": "AgIAAE4AAAAAAAAAAAA9wFQAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:00:42.384Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DebugLogger.cs",
+              "DocumentMoniker": "E:\\Code\\C#\\updater\\updater\\DebugLogger.cs",
+              "RelativeDocumentMoniker": "updater\\DebugLogger.cs",
+              "ToolTip": "E:\\Code\\C#\\updater\\updater\\DebugLogger.cs",
+              "RelativeToolTip": "updater\\DebugLogger.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAowAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:58:55.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "E:\\Code\\C#\\updater\\updater\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "updater\\MainWindow.xaml",
+              "ToolTip": "E:\\Code\\C#\\updater\\updater\\MainWindow.xaml",
+              "RelativeToolTip": "updater\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-08T13:00:25.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FileDownloader.cs",
+              "DocumentMoniker": "E:\\Code\\C#\\updater\\updater\\FileDownloader.cs",
+              "RelativeDocumentMoniker": "updater\\FileDownloader.cs",
+              "ToolTip": "E:\\Code\\C#\\updater\\updater\\FileDownloader.cs",
+              "RelativeToolTip": "updater\\FileDownloader.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAlwBoAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-09T01:03:57.896Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "VersionInfoJson.cs",
+              "DocumentMoniker": "E:\\Code\\C#\\updater\\updater\\VersionInfoJson.cs",
+              "RelativeDocumentMoniker": "updater\\VersionInfoJson.cs",
+              "ToolTip": "E:\\Code\\C#\\updater\\updater\\VersionInfoJson.cs",
+              "RelativeToolTip": "updater\\VersionInfoJson.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:49:56.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "update.json",
+              "DocumentMoniker": "E:\\Code\\C#\\updater\\updater\\update.json",
+              "RelativeDocumentMoniker": "updater\\update.json",
+              "ToolTip": "E:\\Code\\C#\\updater\\updater\\update.json",
+              "RelativeToolTip": "updater\\update.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-08T13:49:57.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FileHasher.cs",
+              "DocumentMoniker": "E:\\Code\\C#\\updater\\updater\\FileHasher.cs",
+              "RelativeDocumentMoniker": "updater\\FileHasher.cs",
+              "ToolTip": "E:\\Code\\C#\\updater\\updater\\FileHasher.cs",
+              "RelativeToolTip": "updater\\FileHasher.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAYwBAAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:55:06.988Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
