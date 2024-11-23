@@ -16,13 +16,13 @@ func _ready() -> void:
 	size.x = 10
 	timer = Timer.new()
 	add_child(timer)
-	timer.wait_time = 1
+	timer.wait_time = 1.5
 	timer.connect("timeout", close_window)
 	timer.one_shot = true
 	
 	timer_text = Timer.new()
 	add_child(timer_text)
-	timer_text.wait_time = 3
+	timer_text.wait_time = 3.5
 	timer_text.connect("timeout",clean_text)
 	timer_text.one_shot = true
 	

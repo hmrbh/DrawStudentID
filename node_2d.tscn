@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://crh0wya5rua77"]
+[gd_scene load_steps=11 format=3 uid="uid://crh0wya5rua77"]
 
 [ext_resource type="Script" path="res://data_draw_id.gd" id="1_2llc1"]
 [ext_resource type="Script" path="res://screen_zoom.gd" id="1_745ha"]
@@ -7,22 +7,6 @@
 [ext_resource type="Script" path="res://draw_button.gd" id="3_aj3ld"]
 [ext_resource type="Script" path="res://settings_button.gd" id="5_68gxg"]
 [ext_resource type="Texture2D" uid="uid://bbvdvpw8h3iv8" path="res://icon_128x128.png" id="6_gbgvm"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yk14q"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ur1bf"]
-modulate_color = Color(0.384314, 0.756863, 0.862745, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dq7x8"]
-modulate_color = Color(0.384314, 0.756863, 0.862745, 1)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_tfpuq"]
-specular_color = Color(0.398412, 0.398412, 0.398412, 1)
-texture_repeat = 3
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r8vdu"]
-texture = SubResource("CanvasTexture_tfpuq")
-modulate_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4813n"]
 
@@ -157,25 +141,9 @@ placeholder_text = "用英文逗号','分隔"
 alignment = 1
 clear_button_enabled = true
 
-[node name="Label2" type="Label" parent="Window/TabBar/TabContainer/通用/通用"]
-visible = false
+[node name="CheckBox_Lock_Range" type="CheckBox" parent="Window/TabBar/TabContainer/通用/通用"]
 layout_mode = 2
-size_flags_stretch_ratio = 0.0
-theme_override_fonts/font = ExtResource("3_1i2d2")
-theme_override_font_sizes/font_size = 20
-text = "是否启用开机自启动"
-vertical_alignment = 1
-
-[node name="AddStartupCheckButton" type="CheckButton" parent="Window/TabBar/TabContainer/通用/通用/Label2"]
-visible = false
-material = SubResource("CanvasItemMaterial_yk14q")
-layout_mode = 0
-offset_left = 200.0
-offset_right = 260.0
-offset_bottom = 30.0
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_ur1bf")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_dq7x8")
-theme_override_styles/normal = SubResource("StyleBoxTexture_r8vdu")
+text = "锁定学号范围设置（关闭）"
 
 [node name="高级" type="ScrollContainer" parent="Window/TabBar/TabContainer"]
 visible = false
@@ -309,11 +277,103 @@ always_on_top = true
 popup_window = true
 ok_button_text = "确认"
 
+[node name="Window" type="Window" parent="Window"]
+title = "设置密码"
+initial_position = 1
+size = Vector2i(400, 500)
+visible = false
+wrap_controls = true
+transient = true
+transient_to_focused = true
+exclusive = true
+unresizable = true
+
+[node name="ColorRect" type="ColorRect" parent="Window/Window"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.121569, 0.121569, 0.121569, 1)
+
+[node name="Label3" type="Label" parent="Window/Window"]
+anchors_preset = -1
+anchor_left = 0.15
+anchor_top = 0.101
+anchor_right = 1.0
+anchor_bottom = 0.101
+offset_bottom = 49.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 35
+text = "请设置管理员密码"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="Window/Window"]
+anchors_preset = -1
+anchor_left = 0.418
+anchor_top = 0.945
+anchor_right = 0.519
+anchor_bottom = 0.945
+offset_left = -120.0
+offset_top = -55.0
+offset_right = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_1i2d2")
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "确认"
+
+[node name="Button2" type="Button" parent="Window/Window"]
+anchors_preset = -1
+anchor_left = 0.885
+anchor_top = 0.945
+anchor_right = 0.977
+anchor_bottom = 0.945
+offset_left = -120.0
+offset_top = -55.0
+offset_right = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_1i2d2")
+theme_override_font_sizes/font_size = 30
+text = "取消"
+
+[node name="LineEdit" type="LineEdit" parent="Window/Window"]
+offset_left = 20.0
+offset_top = 200.0
+offset_right = 340.0
+offset_bottom = 240.0
+placeholder_text = "建议不少于8位，包含字母、数字"
+
+[node name="LineEdit2" type="LineEdit" parent="Window/Window"]
+offset_left = 20.0
+offset_top = 320.0
+offset_right = 340.0
+offset_bottom = 360.0
+placeholder_text = "确认您设置的密码"
+
+[node name="Label" type="Label" parent="Window/Window"]
+offset_left = 20.0
+offset_top = 150.0
+offset_right = 160.0
+offset_bottom = 178.0
+theme_override_font_sizes/font_size = 20
+text = "设置管理员密码"
+
+[node name="Label2" type="Label" parent="Window/Window"]
+offset_left = 20.0
+offset_top = 270.0
+offset_right = 132.0
+offset_bottom = 298.0
+theme_override_font_sizes/font_size = 20
+text = "确认密码"
+
 [node name="SettingsButton" type="Button" parent="."]
 top_level = true
-offset_left = 295.0
+offset_left = 269.0
 offset_top = 320.0
-offset_right = 343.0
+offset_right = 317.0
 offset_bottom = 355.0
 theme_override_fonts/font = ExtResource("3_1i2d2")
 theme_override_font_sizes/font_size = 20
@@ -339,10 +399,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 69.0
-offset_top = 278.0
-offset_right = 286.0
-offset_bottom = 354.0
+offset_left = 43.0
+offset_top = 281.0
+offset_right = 260.0
+offset_bottom = 357.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -401,9 +461,9 @@ light_mask = 2
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = -14.0
+offset_left = 15.0
 offset_top = -122.0
-offset_right = -14.0
+offset_right = 15.0
 offset_bottom = -67.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -433,7 +493,9 @@ text = "重置"
 [connection signal="text_changed" from="Window/TabBar/TabContainer/通用/通用/Label/min" to="." method="_on_min_id_text_edit_changed"]
 [connection signal="text_changed" from="Window/TabBar/TabContainer/通用/通用/Label/max" to="." method="_on_max_id_text_edit_changed"]
 [connection signal="text_changed" from="Window/TabBar/TabContainer/通用/通用/Label/exclude" to="." method="_on_exclude_id_text_edit_changed"]
-[connection signal="toggled" from="Window/TabBar/TabContainer/通用/通用/Label2/AddStartupCheckButton" to="SettingsButton" method="_on_startup_check_button_toggled"]
+[connection signal="toggled" from="Window/TabBar/TabContainer/通用/通用/CheckBox_Lock_Range" to="." method="_on_lock_id_range_check_box_toggled"]
+[connection signal="button_down" from="Window/Window/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Window/Window/Button2" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="SettingsButton" to="SettingsButton" method="_on_settings_button_down"]
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
 [connection signal="button_down" from="DrawButton" to="DrawButton" method="_on_button_down"]

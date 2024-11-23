@@ -17,9 +17,7 @@ func update_data(new_data, type):
 func _ready() -> void:
 	create_database()
 	if str(database.select_rows("id_range", "", ["*"])) == "[]":
-		# 插入一些初始数据
-		database.query("INSERT INTO id_range (min, max, exclude) VALUES (1, 38, \"\");")
-		print("检测到键值为空，插入一些初始数据防止更新失败")
+		data_init()
 	var loded_id_range = database.select_rows("id_range", "", ["*"])[0]
 	print(loded_id_range)
 	$"Window/TabBar/TabContainer/通用/通用/Label/min".text =  str(loded_id_range["min"])
@@ -43,7 +41,7 @@ func create_database() -> void:
 	database.path = "res://sqlite_data.db"
 	database.open_db()
 	
-	var table_data = {
+	var table_id_range = {
 		"min": {
 			"data_type": "int",
 		},
@@ -55,7 +53,20 @@ func create_database() -> void:
 		}
 	}
 	
-	database.create_table("id_range", table_data)
+	var table_bool_settings = {
+		"is_lock_id_range": {
+			"data_type": "int",
+		},
+	}
+	
+	var table_string_settings = {
+		"admin_password": {
+			"data_type": "text",
+		},
+	}
+	database.create_table("id_range", table_id_range)
+	database.create_table("bool_settings", table_bool_settings)
+	database.create_table("string_data", table_string_settings)
 	
 func _on_min_id_text_edit_changed(new_text: String) -> void:
 	# 如果输入了非数字值就不记录直接退出
@@ -68,9 +79,10 @@ func _on_min_id_text_edit_changed(new_text: String) -> void:
 		print("错误输入！")
 		show_settings_error_dialog("位于设置->通用->设置学号范围->学号最小值输入框", "最小学号必须小于最大学号")
 		return
+		
 	elif not new_text.is_empty():
 		var new_min_id = int(new_text)
-		print("调整最小学号为：", change_data_by_key("min", new_min_id))
+		print("调整最小学号为：", change_data_id_range("min", new_min_id))
 		update_data(new_min_id, "min_id")
 
 func _on_max_id_text_edit_changed(new_text: String) -> void:
@@ -84,9 +96,10 @@ func _on_max_id_text_edit_changed(new_text: String) -> void:
 		print("错误输入！")
 		show_settings_error_dialog("位于设置->通用->设置学号范围->学号最大值输入框", "最大学号必须大于最小学号")
 		return
+		
 	elif not new_text.is_empty():
 		var new_max_id = int(new_text)
-		print("调整最大学号为：", change_data_by_key("max", new_max_id))
+		print("调整最大学号为：", change_data_id_range("max", new_max_id))
 		update_data(new_max_id, "max_id")
 	
 func show_settings_error_dialog(location: String, tip_msg: String) -> void:
@@ -103,19 +116,56 @@ func _on_exclude_id_text_edit_changed(new_text: String) -> void:
 
 	if result:
 		print("排除学号输入有效: ", new_text)
-		print("更改排除学号为：", change_data_by_key("exclude", new_text))
+		print("更改排除学号为：", change_data_id_range("exclude", new_text))
 		update_data(new_text, "exclude_id")
 	else:
 		if not new_text.is_empty():
 			print("排除学号输入无效: ", new_text)
 			show_settings_error_dialog("位于设置->通用->设置学号范围->排除学号输入框", "注意必须使用英文逗号来分隔学号\n请确认您是否输入了除数字和英文逗号之外的字符")
 
-func change_data_by_key(key, new_value) -> String:
-	if str(database.select_rows("id_range", "", ["*"])) == "[]":
+func change_data_id_range(key, new_value) -> String:
+	return change_data("id_range", key, new_value)
+	
+func change_data(rows:String, key, new_value) -> String:
+	if str(database.select_rows(rows, "", ["*"])) == "[]":
 		create_database()
-		# 插入一些初始数据
-		database.query("INSERT INTO id_range (min, max, exclude) VALUES (1, 38, \"\");")
-		print("检测到键值为空，插入一些初始数据防止更新失败")
-	database.query("UPDATE id_range SET " + key + " = " + "'" +str(new_value) + "'" + ";")
-	print(database.select_rows("id_range", "", ["*"]))
-	return str(database.select_rows("id_range", "", [key])[0][key])
+		data_init()
+	database.query("UPDATE " + rows + " SET " + key + " = " + "'" +str(new_value) + "'" + ";")
+	print(database.select_rows(rows, "", ["*"]))
+	return str(database.select_rows(rows, "", [key])[0][key])
+
+func get_data(rows:String, key) -> String:
+	return str(database.select_rows(rows, "", [key])[0][key])
+	
+# 判断指定键值是否存在数据
+func data_is_exists(rows:String, key) -> bool:
+	if (database.select_rows(rows, "", [key])[0][key]).is_empty():
+		return false
+	else:
+		return true
+		
+# 当数据库为空时，插入一些初始数据
+func data_init() -> void:
+	database.query("INSERT INTO id_range (min, max, exclude) VALUES (1, 38, \"\");")
+	database.query("INSERT INTO string_data (admin_password) VALUES (\"\");")
+	print("检测到键值为空，插入一些初始数据防止更新失败")
+	
+func _on_lock_id_range_check_box_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		$"Window/TabBar/TabContainer/通用/通用/CheckBox_Lock_Range".text = "锁定学号范围设置（开启）"
+		if get_data("string_data", "admin_password").is_empty():
+			print("没有设置过密码，弹出密码输入框来设置密码")
+			$Window/Window.visible = true
+		else:
+			pass
+	else:
+		$"Window/TabBar/TabContainer/通用/通用/CheckBox_Lock_Range".text = "锁定学号范围设置（关闭）"
+				
+
+# 确认设置管理员密码
+func _on_button_button_down() -> void:
+	$Window/Window.visible = false
+
+
+func _on_button_2_button_down() -> void:
+	$Window/Window.visible = false

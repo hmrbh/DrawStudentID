@@ -19,8 +19,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if can_dragging:
+		
 			# 让窗体边框与鼠标一直保持相同的距离，这样的拖动效果更自然
 			drag_pos = DisplayServer.mouse_get_position() + pos_difference
+			print(pos_difference)
 			DisplayServer.window_set_position(drag_pos)
 
 var pos_difference: Vector2i
