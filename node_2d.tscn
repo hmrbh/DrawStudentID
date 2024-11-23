@@ -369,6 +369,17 @@ offset_bottom = 298.0
 theme_override_font_sizes/font_size = 20
 text = "确认密码"
 
+[node name="Label4" type="Label" parent="Window/Window"]
+anchors_preset = -1
+anchor_left = 0.092
+anchor_top = 0.807
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+
 [node name="SettingsButton" type="Button" parent="."]
 top_level = true
 offset_left = 269.0
@@ -495,7 +506,10 @@ text = "重置"
 [connection signal="text_changed" from="Window/TabBar/TabContainer/通用/通用/Label/exclude" to="." method="_on_exclude_id_text_edit_changed"]
 [connection signal="toggled" from="Window/TabBar/TabContainer/通用/通用/CheckBox_Lock_Range" to="." method="_on_lock_id_range_check_box_toggled"]
 [connection signal="button_down" from="Window/Window/Button" to="." method="_on_button_button_down"]
+[connection signal="pressed" from="Window/Window/Button" to="." method="_on_confirm_password_button_pressed"]
 [connection signal="button_down" from="Window/Window/Button2" to="." method="_on_button_button_down"]
+[connection signal="text_changed" from="Window/Window/LineEdit" to="." method="_on_password_line_edit_text_changed"]
+[connection signal="text_changed" from="Window/Window/LineEdit2" to="." method="_on_password_confirm_text_changed"]
 [connection signal="button_down" from="SettingsButton" to="SettingsButton" method="_on_settings_button_down"]
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
 [connection signal="button_down" from="DrawButton" to="DrawButton" method="_on_button_down"]

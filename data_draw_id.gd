@@ -131,10 +131,12 @@ func change_data(rows:String, key, new_value) -> String:
 		create_database()
 		data_init()
 	database.query("UPDATE " + rows + " SET " + key + " = " + "'" +str(new_value) + "'" + ";")
-	print(database.select_rows(rows, "", ["*"]))
 	return str(database.select_rows(rows, "", [key])[0][key])
 
 func get_data(rows:String, key) -> String:
+	if str(database.select_rows(rows, "", ["*"])) == "[]":
+		create_database()
+		data_init()
 	return str(database.select_rows(rows, "", [key])[0][key])
 	
 # 判断指定键值是否存在数据
@@ -169,3 +171,36 @@ func _on_button_button_down() -> void:
 
 func _on_button_2_button_down() -> void:
 	$Window/Window.visible = false
+	
+
+var is_enter_password = [false, false]
+var enter_password = ["", ""]
+
+func _on_password_line_edit_text_changed(new_text: String) -> void:
+	is_enter_password[0] = true
+	enter_password[0] = new_text
+	$Window/Window/Label4.text = " "
+
+func _on_password_confirm_text_changed(new_text: String) -> void:
+	is_enter_password[1] = true
+	enter_password[1] = new_text
+	$Window/Window/Label4.text = " "
+
+func _process(delta: float) -> void:
+	# 只有两个输入框都输入了密码才启用确认按钮
+	if is_enter_password[0] && is_enter_password[1] \
+	&& !enter_password[0].is_empty() && !enter_password[1].is_empty():
+		$Window/Window/Button.disabled = false
+	else:
+		$Window/Window/Button.disabled = true
+
+func _on_confirm_password_button_pressed() -> void:
+	if enter_password[0] != enter_password[1]:
+		# 当两个输入框中的密码不一致时，禁用确认按钮，并让输入管理员密码
+		# 的窗口重新显示，并在底部用文字提示两次输入的密码不一致
+		print("两次输入的密码不一致！")
+		$Window/Window/Button.disabled = true
+		$Window/Window.visible = true
+		$Window/Window/Label4.text = "两次输入的密码不一致！"
+	else:
+		change_data("string_data", "admin_password", enter_password[1])
