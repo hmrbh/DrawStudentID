@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://area_2d.gd" id="3_8f78t"]
 [ext_resource type="Script" path="res://draw_button.gd" id="3_aj3ld"]
 [ext_resource type="Script" path="res://settings_button.gd" id="5_68gxg"]
-[ext_resource type="Texture2D" uid="uid://bbvdvpw8h3iv8" path="res://icon_128x128.png" id="6_gbgvm"]
+[ext_resource type="Texture2D" uid="uid://b7qdbpsjnqkul" path="res://icons/icon_128x128.png" id="6_gbgvm"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4813n"]
 
@@ -507,7 +507,7 @@ text = "重置"
 [connection signal="toggled" from="Window/TabBar/TabContainer/通用/通用/CheckBox_Lock_Range" to="." method="_on_lock_id_range_check_box_toggled"]
 [connection signal="button_down" from="Window/Window/Button" to="." method="_on_button_button_down"]
 [connection signal="pressed" from="Window/Window/Button" to="." method="_on_confirm_password_button_pressed"]
-[connection signal="button_down" from="Window/Window/Button2" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Window/Window/Button2" to="." method="_on_button_2_button_down"]
 [connection signal="text_changed" from="Window/Window/LineEdit" to="." method="_on_password_line_edit_text_changed"]
 [connection signal="text_changed" from="Window/Window/LineEdit2" to="." method="_on_password_confirm_text_changed"]
 [connection signal="button_down" from="SettingsButton" to="SettingsButton" method="_on_settings_button_down"]

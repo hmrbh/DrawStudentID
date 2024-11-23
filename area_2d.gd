@@ -17,7 +17,7 @@ func _ready() -> void:
 	DisplayServer.window_set_position(read_window_pos())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if can_dragging:
 		# 让窗体边框与鼠标一直保持相同的距离，这样的拖动效果更自然
 		drag_pos = DisplayServer.mouse_get_position() + pos_difference
@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 var pos_difference: Vector2i
 var can_dragging = false
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:

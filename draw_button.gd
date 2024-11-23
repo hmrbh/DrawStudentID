@@ -33,7 +33,7 @@ func _ready() -> void:
 	timer_reset_text.one_shot = true
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 func shuffle_array(array: Array) -> void:
@@ -45,7 +45,7 @@ func shuffle_array(array: Array) -> void:
  
 func gen_array() -> Array:
 	var temp:Array
-	var result:Array
+	var _result:Array
 	var exclude_id_array = exclude_id.split(",", false)
 	for i in range(min_id, max_id+1):
 		temp.append(i)
