@@ -41,5 +41,6 @@
         "sha256": "c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4"
       }
     ]
-  }
+  },
+  "inherit": true
 }

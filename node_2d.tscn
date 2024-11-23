@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://crh0wya5rua77"]
+[gd_scene load_steps=16 format=3 uid="uid://crh0wya5rua77"]
 
 [ext_resource type="Script" path="res://data_draw_id.gd" id="1_2llc1"]
+[ext_resource type="Script" path="res://screen_zoom.gd" id="1_745ha"]
 [ext_resource type="FontFile" uid="uid://cofdusi6aylde" path="res://MiSans-Demibold.ttf" id="3_1i2d2"]
 [ext_resource type="Script" path="res://area_2d.gd" id="3_8f78t"]
 [ext_resource type="Script" path="res://draw_button.gd" id="3_aj3ld"]
@@ -23,10 +24,15 @@ texture_repeat = 3
 texture = SubResource("CanvasTexture_tfpuq")
 modulate_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4813n"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dg17c"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ihe3"]
 size = Vector2(350, 451)
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(1, 0)
 script = ExtResource("1_2llc1")
 
 [node name="Window" type="Window" parent="."]
@@ -272,7 +278,7 @@ size_flags_vertical = 6
 theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
 theme_override_fonts/font = ExtResource("3_1i2d2")
 theme_override_font_sizes/font_size = 15
-text = "   版本：v3.0.2
+text = "   版本：v3.0.3
 "
 
 [node name="Label4" type="Label" parent="Window/TabBar/TabContainer/关于/关于"]
@@ -304,6 +310,7 @@ popup_window = true
 ok_button_text = "确认"
 
 [node name="SettingsButton" type="Button" parent="."]
+top_level = true
 offset_left = 295.0
 offset_top = 320.0
 offset_right = 343.0
@@ -314,23 +321,32 @@ text = "设置"
 script = ExtResource("5_68gxg")
 
 [node name="Area2D" type="Area2D" parent="."]
+material = SubResource("CanvasItemMaterial_4813n")
 script = ExtResource("3_8f78t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visibility_layer = 128
+material = SubResource("CanvasItemMaterial_dg17c")
 position = Vector2(176, 223.5)
 shape = SubResource("RectangleShape2D_5ihe3")
+script = ExtResource("1_745ha")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(1, 1, 1, 0.796078)
 
 [node name="DrawButton" type="Button" parent="."]
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 69.5
+anchor_bottom = 1.0
+offset_left = 69.0
 offset_top = 278.0
-offset_right = 286.5
-offset_bottom = 355.0
+offset_right = 286.0
+offset_bottom = 354.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_font_sizes/font_size = 50
 text = "  抽学号  "
 script = ExtResource("3_aj3ld")

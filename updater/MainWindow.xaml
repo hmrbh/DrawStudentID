@@ -29,7 +29,7 @@
         </Canvas>
 
         <TextBlock Text="正在检测更新..."
-                   HorizontalAlignment="Center" VerticalAlignment="Top"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
                    Margin="0,150,0,0" FontSize="22" Name="StatusText"
                    Foreground="White" FontWeight="DemiBold"/>
     </Grid>

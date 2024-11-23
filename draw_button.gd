@@ -12,6 +12,8 @@ var is_node2d_init: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print(size)
+	size.x = 10
 	timer = Timer.new()
 	add_child(timer)
 	timer.wait_time = 1
