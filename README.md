@@ -1,6 +1,6 @@
 <h1>Draw Student ID   一个用godot制作的抽学号小工具</h1>
 
-<img src="./icons/icon_512x512.png" width=150>
+<img src="./icons/icon_512x512.png" width=150 text-align: center>
 
 ## 这是什么？
 
@@ -12,11 +12,11 @@
 
 ------
 
-![01](img\01.png)
+![01](img/01.png)
 
-![02](img\02.png)
+![02](img/02.png)
 
-![03](img\03.png)
+![03](img/03.png)
 
-![04](img\04.png)
+![04](img/04.png)
 
