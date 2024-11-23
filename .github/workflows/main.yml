@@ -14,15 +14,25 @@ jobs:
       - uses: actions/checkout@v2
         with:
           lfs: true
+      - name: Set up Godot
+        run: |
+          wget https://github.com/godotengine/godot/releases/download/4.3.1/Godot_v4.3.1-stable_linux_headless.64.zip
+          unzip Godot_v4.3.1-stable_linux_headless.64.zip
       - name: Build
         id: build
-        uses: manleydev/build-godot-action@v1.4.1
-        with:
-          name: example
-          preset: ${{ matrix.platform }}
-          debugMode: "true"
+        run: |
+          ./Godot_v4.3.1-stable_linux_headless.64 --headless --export-debug "example_debug"
+          ./Godot_v4.3.1-stable_linux_headless.64 --export-release "example_release"
+        working-directory: ${{ github.workspace }}
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: Client - ${{ matrix.platform }}
-          path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
+          path: ${{ github.workspace }}/example_debug
+          if-no-files-found: error
+      - name: Upload Release Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Client - ${{ matrix.platform }} Release
+          path: ${{ github.workspace }}/example_release
+          if-no-files-found: error
