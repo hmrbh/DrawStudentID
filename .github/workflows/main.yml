@@ -3,7 +3,7 @@ name: Build and Release Godot Project
 on:
   push:
     branches:
-      - main  # 根据你的主分支名称进行调整
+      - master
 
 jobs:
   build:
