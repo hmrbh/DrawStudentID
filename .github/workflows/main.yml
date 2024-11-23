@@ -1,45 +1,28 @@
-name: Build and Release Godot Project
+name: Build Godot Project
 
 on:
-  push:
-    branches:
-      - master
+  push: {}
+  pull_request: {}
 
 jobs:
-  build:
+  Godot:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [linux, windows, mac]
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Build Godot project
-        uses: yeslayla/build-godot-action@v1.4.1
+      - uses: actions/checkout@v2
         with:
-          name: DrawStudentID
-          preset: 1
-          subdirectory: ''
-          package: true
-          projectDir: ''
-          debugMode: false
-
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          lfs: true
+      - name: Build
+        id: build
+        uses: manleydev/build-godot-action@v1.4.1
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-
-      - name: Upload Release Asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: example
+          preset: ${{ matrix.platform }}
+          debugMode: "true"
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: DrawStudentID
-          asset_name: DrawStudentID
-          asset_content_type: application/octet-stream
+          name: Client - ${{ matrix.platform }}
+          path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
