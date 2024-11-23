@@ -11,18 +11,19 @@ jobs:
       matrix:
         platform: [linux, windows, mac]
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
         with:
           lfs: true
       - name: Set up Godot
         run: |
-          wget https://github.com/godotengine/godot/releases/download/4.3.1/Godot_v4.3.1-stable_linux_headless.64.zip
-          unzip Godot_v4.3.1-stable_linux_headless.64.zip
+          wget https://github.com/godotengine/godot/releases/download/4.3.2/Godot_v4.3.2-stable_linux_headless.64.zip
+          unzip Godot_v4.3.2-stable_linux_headless.64.zip
       - name: Build
         id: build
         run: |
-          ./Godot_v4.3.1-stable_linux_headless.64 --headless --export-debug "example_debug"
-          ./Godot_v4.3.1-stable_linux_headless.64 --export-release "example_release"
+          ./Godot_v4.3.2-stable_linux_headless.64 --headless --export-debug "example_debug"
+          ./Godot_v4.3.2-stable_linux_headless.64 --export-release "example_release"
         working-directory: ${{ github.workspace }}
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
