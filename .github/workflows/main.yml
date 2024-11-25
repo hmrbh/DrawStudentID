@@ -1,55 +1,39 @@
-name: Build and Release Godot Project
+name: Build Godot Project
 
 on:
-  push:
-    branches:
-      - main  # 根据你的主分支名称进行调整
+  push: {}
+  pull_request: {}
 
 jobs:
-  build:
+  Godot:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [linux, windows, mac]
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/checkout@v3
         with:
-          python-version: '3.x'
-
-      - name: Install dependencies
+          lfs: true
+      - name: Set up Godot
         run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
-      - name: Build Godot project
-        uses: yeslayla/build-godot-action@v1.4.1
+          wget https://github.com/godotengine/godot/releases/download/4.3.2/Godot_v4.3.2-stable_linux_headless.64.zip
+          unzip Godot_v4.3.2-stable_linux_headless.64.zip
+      - name: Build
+        id: build
+        run: |
+          ./Godot_v4.3.2-stable_linux_headless.64 --headless --export-debug "example_debug"
+          ./Godot_v4.3.2-stable_linux_headless.64 --export-release "example_release"
+        working-directory: ${{ github.workspace }}
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
         with:
-          name: DrawStudentID
-          preset: 1
-          subdirectory: ''
-          package: true
-          projectDir: ''
-          debugMode: ''
-
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: Client - ${{ matrix.platform }}
+          path: ${{ github.workspace }}/example_debug
+          if-no-files-found: error
+      - name: Upload Release Artifact
+        uses: actions/upload-artifact@v3
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-
-      - name: Upload Release Asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: DrawStudentID
-          asset_name: DrawStudentID
-          asset_content_type: application/octet-stream
+          name: Client - ${{ matrix.platform }} Release
+          path: ${{ github.workspace }}/example_release
+          if-no-files-found: error
