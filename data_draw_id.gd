@@ -157,7 +157,7 @@ func _on_lock_id_range_check_box_toggled(toggled_on: bool) -> void:
 		$"Window/TabBar/TabContainer/通用/通用/CheckBox_Lock_Range".text = "锁定学号范围设置（开启）"
 		if get_data("string_data", "admin_password").is_empty():
 			print("没有设置过密码，弹出密码输入框来设置密码")
-			$Window/Window.visible = true
+			$Window/密码设置框.visible = true
 		else:
 			pass
 	else:
@@ -166,7 +166,7 @@ func _on_lock_id_range_check_box_toggled(toggled_on: bool) -> void:
 
 # 确认设置管理员密码
 func _on_button_button_down() -> void:
-	$Window/Window.visible = false
+	$Window/密码设置框.visible = false
 	$Window/TabBar/TabContainer/通用/通用/CheckBox_Lock_Range.button_pressed = true
 
 var is_enter_password = [false, false]
@@ -175,29 +175,29 @@ var enter_password = ["", ""]
 func _on_password_line_edit_text_changed(new_text: String) -> void:
 	is_enter_password[0] = true
 	enter_password[0] = new_text
-	$Window/Window/Label4.text = " "
+	$Window/密码设置框/Label4.text = " "
 
 func _on_password_confirm_text_changed(new_text: String) -> void:
 	is_enter_password[1] = true
 	enter_password[1] = new_text
-	$Window/Window/Label4.text = " "
+	$Window/密码设置框/Label4.text = " "
 
 func _process(_delta: float) -> void:
 	# 只有两个输入框都输入了密码才启用确认按钮
 	if is_enter_password[0] && is_enter_password[1] \
 	&& !enter_password[0].is_empty() && !enter_password[1].is_empty():
-		$Window/Window/Button.disabled = false
+		$Window/密码设置框/Button.disabled = false
 	else:
-		$Window/Window/Button.disabled = true
+		$Window/密码设置框/Button.disabled = true
 
 func _on_confirm_password_button_pressed() -> void:
 	if enter_password[0] != enter_password[1]:
 		# 当两个输入框中的密码不一致时，禁用确认按钮，并让输入管理员密码
 		# 的窗口重新显示，并在底部用文字提示两次输入的密码不一致
 		print("两次输入的密码不一致！")
-		$Window/Window/Button.disabled = true
-		$Window/Window.visible = true
-		$Window/Window/Label4.text = "两次输入的密码不一致！"
+		$Window/密码设置框/Button.disabled = true
+		$Window/密码设置框.visible = true
+		$Window/密码设置框/Label4.text = "两次输入的密码不一致！"
 		$Window/TabBar/TabContainer/通用/通用/CheckBox_Lock_Range.button_pressed = false
 	else:
 		$Window/TabBar/TabContainer/通用/通用/CheckBox_Lock_Range.button_pressed = true
