@@ -18,7 +18,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if can_dragging:
+	# 当左键按住且设置窗体没有显示时开始拖动
+	if can_dragging and not $"../Window".visible:
 		# 让窗体边框与鼠标一直保持相同的距离，这样的拖动效果更自然
 		drag_pos = DisplayServer.mouse_get_position() + pos_difference
 		DisplayServer.window_set_position(drag_pos)

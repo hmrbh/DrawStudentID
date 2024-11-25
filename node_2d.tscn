@@ -26,9 +26,8 @@ initial_position = 1
 size = Vector2i(600, 500)
 visible = false
 wrap_controls = true
-transient = true
-transient_to_focused = true
-popup_window = true
+always_on_top = true
+extend_to_title = true
 
 [node name="ColorRect" type="ColorRect" parent="Window"]
 light_mask = 0
@@ -247,7 +246,7 @@ size_flags_vertical = 6
 theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
 theme_override_fonts/font = ExtResource("3_1i2d2")
 theme_override_font_sizes/font_size = 15
-text = "   版本：v3.0.3
+text = "   版本：v3.0.4
 "
 
 [node name="Label4" type="Label" parent="Window/TabBar/TabContainer/关于/关于"]
