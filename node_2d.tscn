@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://crh0wya5rua77"]
+[gd_scene load_steps=12 format=3 uid="uid://crh0wya5rua77"]
 
 [ext_resource type="Script" path="res://data_draw_id.gd" id="1_2llc1"]
 [ext_resource type="Script" path="res://screen_zoom.gd" id="1_745ha"]
 [ext_resource type="FontFile" uid="uid://cofdusi6aylde" path="res://MiSans-Demibold.ttf" id="3_1i2d2"]
 [ext_resource type="Script" path="res://area_2d.gd" id="3_8f78t"]
 [ext_resource type="Script" path="res://draw_button.gd" id="3_aj3ld"]
+[ext_resource type="Script" path="res://check_box_lock_range.gd" id="3_evves"]
 [ext_resource type="Script" path="res://settings_button.gd" id="5_68gxg"]
 [ext_resource type="Texture2D" uid="uid://b7qdbpsjnqkul" path="res://icons/icon_128x128.png" id="6_gbgvm"]
 
@@ -27,7 +28,6 @@ size = Vector2i(600, 500)
 visible = false
 wrap_controls = true
 always_on_top = true
-extend_to_title = true
 
 [node name="ColorRect" type="ColorRect" parent="Window"]
 light_mask = 0
@@ -144,6 +144,7 @@ clear_button_enabled = true
 [node name="CheckBox_Lock_Range" type="CheckBox" parent="Window/TabBar/TabContainer/通用/通用"]
 layout_mode = 2
 text = "锁定学号范围设置（关闭）"
+script = ExtResource("3_evves")
 
 [node name="高级" type="ScrollContainer" parent="Window/TabBar/TabContainer"]
 visible = false
@@ -277,7 +278,8 @@ always_on_top = true
 popup_window = true
 ok_button_text = "确认"
 
-[node name="密码设置框" type="Window" parent="Window"]
+[node name="SetPasswordWindow" type="Window" parent="Window"]
+unique_name_in_owner = true
 title = "设置密码"
 initial_position = 1
 size = Vector2i(400, 500)
@@ -288,7 +290,7 @@ transient_to_focused = true
 exclusive = true
 unresizable = true
 
-[node name="ColorRect" type="ColorRect" parent="Window/密码设置框"]
+[node name="ColorRect" type="ColorRect" parent="Window/SetPasswordWindow"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -296,7 +298,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.121569, 0.121569, 0.121569, 1)
 
-[node name="Label3" type="Label" parent="Window/密码设置框"]
+[node name="Label3" type="Label" parent="Window/SetPasswordWindow"]
 anchors_preset = -1
 anchor_left = 0.15
 anchor_top = 0.101
@@ -308,7 +310,7 @@ theme_override_font_sizes/font_size = 35
 text = "请设置管理员密码"
 autowrap_mode = 2
 
-[node name="Button" type="Button" parent="Window/密码设置框"]
+[node name="Button" type="Button" parent="Window/SetPasswordWindow"]
 anchors_preset = -1
 anchor_left = 0.418
 anchor_top = 0.945
@@ -324,7 +326,7 @@ theme_override_font_sizes/font_size = 30
 disabled = true
 text = "确认"
 
-[node name="Button2" type="Button" parent="Window/密码设置框"]
+[node name="Button2" type="Button" parent="Window/SetPasswordWindow"]
 anchors_preset = -1
 anchor_left = 0.885
 anchor_top = 0.945
@@ -339,21 +341,21 @@ theme_override_fonts/font = ExtResource("3_1i2d2")
 theme_override_font_sizes/font_size = 30
 text = "取消"
 
-[node name="LineEdit" type="LineEdit" parent="Window/密码设置框"]
+[node name="LineEdit" type="LineEdit" parent="Window/SetPasswordWindow"]
 offset_left = 20.0
 offset_top = 200.0
 offset_right = 340.0
 offset_bottom = 240.0
 placeholder_text = "建议不少于8位，包含字母、数字"
 
-[node name="LineEdit2" type="LineEdit" parent="Window/密码设置框"]
+[node name="LineEdit2" type="LineEdit" parent="Window/SetPasswordWindow"]
 offset_left = 20.0
 offset_top = 320.0
 offset_right = 340.0
 offset_bottom = 360.0
 placeholder_text = "确认您设置的密码"
 
-[node name="Label" type="Label" parent="Window/密码设置框"]
+[node name="Label" type="Label" parent="Window/SetPasswordWindow"]
 offset_left = 20.0
 offset_top = 150.0
 offset_right = 160.0
@@ -361,7 +363,7 @@ offset_bottom = 178.0
 theme_override_font_sizes/font_size = 20
 text = "设置管理员密码"
 
-[node name="Label2" type="Label" parent="Window/密码设置框"]
+[node name="Label2" type="Label" parent="Window/SetPasswordWindow"]
 offset_left = 20.0
 offset_top = 270.0
 offset_right = 132.0
@@ -369,7 +371,7 @@ offset_bottom = 298.0
 theme_override_font_sizes/font_size = 20
 text = "确认密码"
 
-[node name="Label4" type="Label" parent="Window/密码设置框"]
+[node name="Label4" type="Label" parent="Window/SetPasswordWindow"]
 anchors_preset = -1
 anchor_left = 0.092
 anchor_top = 0.807
@@ -379,6 +381,94 @@ offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+
+[node name="InputPasswordWindow" type="Window" parent="Window"]
+initial_position = 1
+size = Vector2i(400, 300)
+visible = false
+wrap_controls = true
+transient = true
+transient_to_focused = true
+exclusive = true
+unresizable = true
+
+[node name="ColorRect" type="ColorRect" parent="Window/InputPasswordWindow"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.121569, 0.121569, 0.121569, 1)
+
+[node name="Label" type="Label" parent="Window/InputPasswordWindow"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 60.0
+offset_right = 80.0
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_1i2d2")
+theme_override_font_sizes/font_size = 20
+text = "请输入管理员密码"
+
+[node name="Button" type="Button" parent="Window/InputPasswordWindow"]
+anchors_preset = -1
+anchor_left = 0.418
+anchor_top = 0.945
+anchor_right = 0.519
+anchor_bottom = 0.945
+offset_left = -120.0
+offset_top = -55.0
+offset_right = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_1i2d2")
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "确认"
+
+[node name="Button2" type="Button" parent="Window/InputPasswordWindow"]
+anchors_preset = -1
+anchor_left = 0.885
+anchor_top = 0.945
+anchor_right = 0.977
+anchor_bottom = 0.945
+offset_left = -120.0
+offset_top = -55.0
+offset_right = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_1i2d2")
+theme_override_font_sizes/font_size = 30
+text = "取消"
+
+[node name="LineEdit" type="LineEdit" parent="Window/InputPasswordWindow"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -20.0
+offset_right = 160.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "输入管理员密码"
+
+[node name="ErrorMsg" type="Label" parent="Window/InputPasswordWindow"]
+anchors_preset = -1
+anchor_left = 0.115
+anchor_top = 0.68
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+justification_flags = 161
 
 [node name="SettingsButton" type="Button" parent="."]
 top_level = true
@@ -503,17 +593,21 @@ theme_override_font_sizes/font_size = 20
 text = "重置"
 
 [connection signal="data_changed" from="." to="DrawButton" method="_on_node_2d_data_changed"]
+[connection signal="ready" from="." to="Window/TabBar/TabContainer/通用/通用/CheckBox_Lock_Range" method="_on_node_2d_ready"]
 [connection signal="ready" from="." to="DrawButton" method="_on_node_2d_ready"]
 [connection signal="button_down" from="Window/Button" to="SettingsButton" method="_on_close_button_down"]
 [connection signal="text_changed" from="Window/TabBar/TabContainer/通用/通用/Label/min" to="." method="_on_min_id_text_edit_changed"]
 [connection signal="text_changed" from="Window/TabBar/TabContainer/通用/通用/Label/max" to="." method="_on_max_id_text_edit_changed"]
 [connection signal="text_changed" from="Window/TabBar/TabContainer/通用/通用/Label/exclude" to="." method="_on_exclude_id_text_edit_changed"]
 [connection signal="toggled" from="Window/TabBar/TabContainer/通用/通用/CheckBox_Lock_Range" to="." method="_on_lock_id_range_check_box_toggled"]
-[connection signal="button_down" from="Window/密码设置框/Button" to="." method="_on_button_button_down"]
-[connection signal="pressed" from="Window/密码设置框/Button" to="." method="_on_confirm_password_button_pressed"]
-[connection signal="button_down" from="Window/密码设置框/Button2" to="." method="_on_button_2_button_down"]
-[connection signal="text_changed" from="Window/密码设置框/LineEdit" to="." method="_on_password_line_edit_text_changed"]
-[connection signal="text_changed" from="Window/密码设置框/LineEdit2" to="." method="_on_password_confirm_text_changed"]
+[connection signal="button_down" from="Window/SetPasswordWindow/Button" to="." method="_on_button_button_down"]
+[connection signal="pressed" from="Window/SetPasswordWindow/Button" to="." method="_on_confirm_password_button_pressed"]
+[connection signal="button_down" from="Window/SetPasswordWindow/Button2" to="." method="_on_cancel_setting_password_button_down"]
+[connection signal="text_changed" from="Window/SetPasswordWindow/LineEdit" to="." method="_on_password_line_edit_text_changed"]
+[connection signal="text_changed" from="Window/SetPasswordWindow/LineEdit2" to="." method="_on_password_confirm_text_changed"]
+[connection signal="button_down" from="Window/InputPasswordWindow/Button" to="." method="_on_confirm_input_password_button_down"]
+[connection signal="button_down" from="Window/InputPasswordWindow/Button2" to="." method="_on_cancel_input_password_button_down"]
+[connection signal="text_changed" from="Window/InputPasswordWindow/LineEdit" to="." method="_on_input_password_line_edit_changed"]
 [connection signal="button_down" from="SettingsButton" to="SettingsButton" method="_on_settings_button_down"]
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
 [connection signal="button_down" from="DrawButton" to="DrawButton" method="_on_button_down"]
